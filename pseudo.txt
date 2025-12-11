@@ -1,0 +1,3 @@
+ Plans and Structure for my RPS game
+
+This game is play entirely on console

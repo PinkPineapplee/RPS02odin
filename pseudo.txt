@@ -1,3 +1,11 @@
  Plans and Structure for my RPS game
 
 This game is play entirely on console
+
+function that randomly returns "rock", "paper", "scissors"
+write logic to get computer choice
+write logic to get human choice
+Declare score variables
+write the logic to play a single round
+write the logic to play the entire game
+ 

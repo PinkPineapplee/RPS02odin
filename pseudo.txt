@@ -8,4 +8,5 @@ write logic to get human choice
 Declare score variables
 write the logic to play a single round
 write the logic to play the entire game
- 
+let first player to reach 5 points win the game!
+try error handling.

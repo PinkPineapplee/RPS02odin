@@ -1,6 +1,4 @@
-
-
-
+let gameStart = false;
 
 const player = {
     computer : ["Player One" , getComputerChoice()],
@@ -19,16 +17,16 @@ function getComputerChoice(){
     return computerChoice = choices[randomIndex] 
 }
 
-console.log(getComputerChoice())
 
 
+//function prompt for user choice
 function getHumanChoice(){
 
     const humanChoice = prompt("Rock, Paper, Scissors!!!").toLowerCase()
 
     return (humanChoice);
 }
-console.log(getHumanChoice())
+
 
 //Declare scoreBoard object
 const scoreBoard = {
@@ -49,15 +47,51 @@ function winningConditions(computerChoice,humanChoice){
               choices[0] == "scissors" && choices[1] == "paper" ||
               choices[0] == "rock" && choices[1] == "scissors"
     ){
-       winner = player.computer[0];
+       winner = player.human[0];
     
        console.log( "humans has won this round.")
     }else {
-        winner = player.computer[1];
+        winner = player.computer[0];
     
        console.log( "I won alright! I'm just lucky, Humans made me this good!")
     }
 
     return winner;
 }
-console.log(winningConditions());
+
+//add to scoreboard
+function playRound(winner){
+    let winner = winningConditions(player.computer[1],player.human[1]);
+    
+    winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwo++
+    
+}
+
+
+function playGame(){
+  gameStart = true;
+
+  //PlayRound five times
+  for (let i = 1 ; i <= 5; i++){
+     playRound();
+  }
+ 
+// gameOver conditions
+  if (scoreBoard.playerOneScore == 5){
+    console.log("computer has won the game!")
+    
+  }else if (scoreBoard.playerTwoScore == 5){
+    console.log("the human has won the game!")
+     
+  }
+  reset();
+}playGame()
+
+
+function reset(){
+  gameStart = false;
+  scoreBoard.playerOneScore[1]=0;
+  scoreBoard.playerTwoScore[1]=0;
+
+  return (gameStart, scoreBoard.playerOneScore, scoreBoard.playerTwoScore)
+}

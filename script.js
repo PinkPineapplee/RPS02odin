@@ -23,8 +23,11 @@ console.log(getComputerChoice())
 
 
 function getHumanChoice(){
+
     const humanChoice = prompt("Rock, Paper, Scissors!!!").toLowerCase()
 
     return (humanChoice);
 }
 console.log(getHumanChoice())
+
+

@@ -61,7 +61,7 @@ function winningConditions(computerChoice,humanChoice){
 
 //add to scoreboard
 function playRound(winner){
-    let winner = winningConditions(player.computer[1],player.human[1]);
+    winner = winningConditions(player.computer[1],player.human[1]);
     
     winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwo++
     
@@ -95,3 +95,11 @@ function reset(){
 
   return (gameStart, scoreBoard.playerOneScore, scoreBoard.playerTwoScore)
 }
+
+function errorHandlingGetHumanChoice(){
+   if (prompt !== "Rock"||"Paper"|| "Scissors"){
+    throw Error("It only works if you Choose the elements!")
+   }
+}
+
+

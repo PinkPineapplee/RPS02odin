@@ -12,9 +12,9 @@ function getComputerChoice(){
    
     const randomIndex = Math.floor(Math.random()* choices.length);
 
-    let computerChoice;
+    let computerChoice = choices[randomIndex];
 
-    return computerChoice = choices[randomIndex] 
+    return computerChoice 
 }
 
 
@@ -24,7 +24,7 @@ function getHumanChoice(){
 
     const humanChoice = prompt("Rock, Paper, Scissors!!!").toLowerCase()
 
-    return (humanChoice);
+    return humanChoice;
 }
 
 
@@ -42,7 +42,7 @@ function winningConditions(computerChoice,humanChoice){
     let choices = [a,b];
 
     if (choices[0] == choices[1]){
-        console.log("it's a tie")
+        console.log("it's a tie.")
     } else if(choices[0] == "paper" && choices[1] == "rock" ||
               choices[0] == "scissors" && choices[1] == "paper" ||
               choices[0] == "rock" && choices[1] == "scissors"
@@ -60,10 +60,10 @@ function winningConditions(computerChoice,humanChoice){
 }
 
 //add to scoreboard
-function playRound(winner){
-    winner = winningConditions(player.computer[1],player.human[1]);
+function playRound(){
+   winningConditions(player.computer[1],player.human[1]);
     
-    winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwo++
+    winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
     
 }
 
@@ -71,10 +71,10 @@ function playRound(winner){
 function playGame(){
   gameStart = true;
 
-  //PlayRound five times
-  for (let i = 1 ; i <= 5; i++){
-     playRound(winningConditions());
-  }
+  // //PlayRound five times
+  // for (let i = 1 ; i <= 5; i++){
+  //    playRound(winningConditions());
+  // }
  
 // gameOver conditions
   if (scoreBoard.playerOneScore == 5){

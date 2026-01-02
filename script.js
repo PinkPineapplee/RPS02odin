@@ -1,8 +1,8 @@
 let gameStart = false;
 
 const player = {
-    computer : ["Player One" , getComputerChoice()],
-    human : ["Player Two", getHumanChoice()],
+    computer : ["Player One" , getComputerChoice],
+    human : ["Player Two", getHumanChoice],
 }
 
 //function randomly chooses any value from the array
@@ -21,18 +21,26 @@ function getComputerChoice(){
 //function prompt for user choice
 function getHumanChoice(){
 const humanChoice = prompt("Rock, Paper, Scissors!!!").toLowerCase()
+
 console.log(humanChoice);
   try{ 
-    if (humanChoice !== "rock"||"paper"||"scissors"){
-    throw "pick Rock, Paper or Scissors to continue game!!."
-    
+
+    if (humanChoice !== "rock" &&
+        humanChoice !== "paper" &&
+        humanChoice !== "scissors"){
+
+        throw "pick Rock, Paper or Scissors to continue game!!."
+        
   } 
     
   }catch(err){
     console.log(err)
     alert(err)
-  }
+    getHumanChoice();
+  } finally{
     return humanChoice;
+  }
+    
 }
 
 
@@ -46,9 +54,6 @@ function winningConditions(computerChoice,humanChoice){
     let winner = '';
     let a = computerChoice;
     let b = humanChoice;
-
-      console.log(a);
-      console.log(b);
 
     let choices = [a,b];
 
@@ -74,7 +79,8 @@ function winningConditions(computerChoice,humanChoice){
 
 //add to scoreboard
 function playRound(){
-   winningConditions(player.computer[1],player.human[1]);
+
+   let winner= winningConditions(player.computer[1],player.human[1]);
     
     winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
     
@@ -84,10 +90,12 @@ function playRound(){
 function playGame(){
   gameStart = true;
 
-  // //PlayRound five times
-  // for (let i = 1 ; i <= 5; i++){
-  //    playRound(winningConditions());
-  // }
+   //PlayRound five times
+   for (let i = 1 ; i <= 5; i++){
+    player.computer[1]()
+    player.human[1]()
+     playRound();
+   }
  
 // gameOver conditions
   if (scoreBoard.playerOneScore == 5){

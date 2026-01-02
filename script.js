@@ -2,18 +2,17 @@ let gameStart = false;
 
 const player = {
     computer : ["Player One" , getComputerChoice()],
-    human : ["Player Two", getHumanChoice()],  
+    human : ["Player Two", getHumanChoice()],
 }
 
 //function randomly chooses any value from the array
 function getComputerChoice(){
 
     const choices = ["rock", "paper", "scissors"];
-   
-    const randomIndex = Math.floor(Math.random()* choices.length);
+    const randomIndex = Math.floor(Math.random() * choices.length);
 
     let computerChoice = choices[randomIndex];
-
+    console.log(computerChoice);
     return computerChoice 
 }
 
@@ -21,9 +20,18 @@ function getComputerChoice(){
 
 //function prompt for user choice
 function getHumanChoice(){
-
-    const humanChoice = prompt("Rock, Paper, Scissors!!!").toLowerCase()
-
+const humanChoice = prompt("Rock, Paper, Scissors!!!").toLowerCase()
+console.log(humanChoice);
+  try{ 
+    if (humanChoice !== "rock"||"paper"||"scissors"){
+    throw "pick Rock, Paper or Scissors to continue game!!."
+    
+  } 
+    
+  }catch(err){
+    console.log(err)
+    alert(err)
+  }
     return humanChoice;
 }
 
@@ -35,14 +43,19 @@ const scoreBoard = {
 }
 
 function winningConditions(computerChoice,humanChoice){
-   let winner = '';
+    let winner = '';
     let a = computerChoice;
     let b = humanChoice;
-      
+
+      console.log(a);
+      console.log(b);
+
     let choices = [a,b];
 
     if (choices[0] == choices[1]){
+
         console.log("it's a tie.")
+
     } else if(choices[0] == "paper" && choices[1] == "rock" ||
               choices[0] == "scissors" && choices[1] == "paper" ||
               choices[0] == "rock" && choices[1] == "scissors"
@@ -96,10 +109,6 @@ function reset(){
   return (gameStart, scoreBoard.playerOneScore, scoreBoard.playerTwoScore)
 }
 
-function errorHandlingGetHumanChoice(){
-   if (prompt !== "Rock"||"Paper"|| "Scissors"){
-    throw Error("It only works if you Choose the elements!")
-   }
-}
+
 
 

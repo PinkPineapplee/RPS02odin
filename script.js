@@ -50,29 +50,22 @@ const scoreBoard = {
     playerTwoScore : 0,
 }
 
-function winningConditions(computerChoice,humanChoice){
+function winningConditions(computer,human){
     let winner = '';
-    let a = computerChoice;
-    let b = humanChoice;
 
-    let choices = [a,b];
-
-    if (choices[0] == choices[1]){
-
+     if (computer === human){
         console.log("it's a tie.")
-
-    } else if(choices[0] == "paper" && choices[1] == "rock" ||
-              choices[0] == "scissors" && choices[1] == "paper" ||
-              choices[0] == "rock" && choices[1] == "scissors"
-    ){
-       winner = player.human[0];
-    
-       console.log( "humans has won this round.")
-    }else {
-        winner = player.computer[0];
-    
-       console.log( "I won alright! I'm just lucky, Humans made me this good!")
-    }
+     } else if((computer === "paper" && human === "rock") ||
+               (computer === "scissors" && human === "paper") ||
+               (computer === "rock" && human === "scissors")
+     ){
+      winner = player.computer[0];
+        console.log( "I won alright! I'm just lucky, Humans made me this good!")
+      
+     }else {
+         winner = player.human[0];
+        console.log( "humans has won this round.")
+     }
 
     return winner;
 }
@@ -80,7 +73,7 @@ function winningConditions(computerChoice,humanChoice){
 //add to scoreboard
 function playRound(){
 
-   let winner= winningConditions(player.computer[1],player.human[1]);
+   let winner= winningConditions(player.computer[1](),player.human[1]());
     
     winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
     
@@ -92,8 +85,7 @@ function playGame(){
 
    //PlayRound five times
    for (let i = 1 ; i <= 5; i++){
-    player.computer[1]()
-    player.human[1]()
+   
      playRound();
    }
  

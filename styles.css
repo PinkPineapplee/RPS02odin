@@ -1,0 +1,23 @@
+
+body{
+ height: 100vh;
+ width: 100vw;
+ background-color: lightblue;
+}
+
+h1{
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.container{
+    flex-direction: flex;
+    height: 50vh;
+    background-color: blue;
+}
+
+button + img{
+    height: 20rem;
+    width: 20rem;
+}

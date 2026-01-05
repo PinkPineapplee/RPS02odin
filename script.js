@@ -1,8 +1,7 @@
-  const rock = document.querySelector("#rock");
-  const paper= document.querySelector("#paper");
-  const scissors=document.querySelector("#scissors");
- 
-
+let rock = document.querySelector("#rock");
+let paper = document.querySelector("#paper");
+let scissors = document.querySelector("#scissors");
+  
 let gameStart = false;
 
 const player = {
@@ -25,22 +24,34 @@ function getComputerChoice(){
 
 //function prompt for user choice
 function getHumanChoice(){
-let humanChoice;
-  
+let humanChoice = '';
+// rock='';
+// paper='';
+// scissors='';
   //add eventlisteners to get humanchoice
+   rock.addEventListener("click", ()=>{
+    if(rock.isClicked == true){
 
-  rock.addEventListener("click", ()=>{ humanChoice= "rock"});
-  paper.addEventListener("click", ()=>{ humanChoice= "paper"});
-  scissors.addEventListener("click", ()=>{  humanChoice= "scissors"});
+    return humanChoice= "rock", 
+console.log(humanChoice);;
+  }});
+   paper.addEventListener("click", ()=>{
+    if(paper.isClicked == true){
+    return humanChoice="paper", 
+console.log(humanChoice);;
+   }});
+   scissors.addEventListener("click", ()=>{
+      if(scissors.isClicked == true){
+      return humanChoice="scissors", 
+console.log(humanChoice);;
+    }});
 
-
-
-console.log(humanChoice);
   try{ 
 
     if (humanChoice !== "rock" &&
         humanChoice !== "paper" &&
-        humanChoice !== "scissors"){
+        humanChoice !== "scissors" &&
+        humanChoice === '' ){
 
         throw "pick Rock, Paper or Scissors to continue game!!."
         
@@ -53,7 +64,7 @@ console.log(humanChoice);
   } finally{
     return humanChoice;
   }
-    
+   
 }
 
 

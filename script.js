@@ -20,8 +20,7 @@ function getComputerChoice(){
 
 //function prompt for user choice
 function getHumanChoice(){
-const humanChoice = prompt("Rock, Paper, Scissors!!!").toLowerCase()
-
+let humanChoice;
   const rock = document.querySelector("#rock");
   const paper= document.querySelector("#paper");
   const scissors=document.querySelector("#scissors");
@@ -73,10 +72,12 @@ function winningConditions(computer,human){
      ){
       winner = player.computer[0];
         console.log( "I won alright! I'm just lucky, Humans made me this good!")
+        alert("I won alright! I'm just lucky, Humans made me this good!")
       
      }else {
          winner = player.human[0];
         console.log( "humans has won this round.")
+        alert("humans has won this round. +1point!")
      }
 
     return winner;

@@ -2,22 +2,38 @@
 body{
  height: 100vh;
  width: 100vw;
- background-color: lightblue;
+ background-color: rgb(26, 26, 131);
 }
 
 h1{
     font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 15rem;
 
 }
 
 .container{
     flex-direction: flex;
     height: 50vh;
-    background-color: blue;
+    background-color: rgb(26, 26, 131);
+    justify-content: space-between;
+
 }
 
-button + img{
-    height: 20rem;
-    width: 20rem;
+ img{
+    height: 10rem;
+    width: 10rem;
+    background: none;
+    background-color: rgb(26, 26, 131);
+   
+
+}
+
+button{
+ border: none;
+ padding-block: 0px;
+ padding-inline: 0px;
+ letter-spacing: 0%;
+ word-spacing: 0%;
+ line-height: 0%;
 }

@@ -22,6 +22,18 @@ function getComputerChoice(){
 function getHumanChoice(){
 const humanChoice = prompt("Rock, Paper, Scissors!!!").toLowerCase()
 
+  const rock = document.querySelector("#rock");
+  const paper= document.querySelector("#paper");
+  const scissors=document.querySelector("#scissors");
+
+  //add eventlisteners to get humanchoice
+
+  rock.addEventListener("click", humanChoice= "rock");
+  paper.addEventListener("click", humanChoice= "paper");
+  scissors.addEventListener("click", humanChoice= "scissors");
+
+
+
 console.log(humanChoice);
   try{ 
 

@@ -1,3 +1,8 @@
+  const rock = document.querySelector("#rock");
+  const paper= document.querySelector("#paper");
+  const scissors=document.querySelector("#scissors");
+ 
+
 let gameStart = false;
 
 const player = {
@@ -21,15 +26,12 @@ function getComputerChoice(){
 //function prompt for user choice
 function getHumanChoice(){
 let humanChoice;
-  const rock = document.querySelector("#rock");
-  const paper= document.querySelector("#paper");
-  const scissors=document.querySelector("#scissors");
-
+  
   //add eventlisteners to get humanchoice
 
-  rock.addEventListener("click", humanChoice= "rock");
-  paper.addEventListener("click", humanChoice= "paper");
-  scissors.addEventListener("click", humanChoice= "scissors");
+  rock.addEventListener("click", ()=>{ humanChoice= "rock"});
+  paper.addEventListener("click", ()=>{ humanChoice= "paper"});
+  scissors.addEventListener("click", ()=>{  humanChoice= "scissors"});
 
 
 
@@ -104,10 +106,12 @@ function playGame(){
  
 // gameOver conditions
   if (scoreBoard.playerOneScore == 5){
-    console.log("computer has won the game!")
+    console.log("computer has won the game!");
+    alert("computer has won the game!");
     
   }else if (scoreBoard.playerTwoScore == 5){
-    console.log("the human has won the game!")
+    console.log("the human has won the game!");
+    alert("You Won!!")
      
   }
   reset();

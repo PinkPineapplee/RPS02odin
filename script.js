@@ -1,11 +1,14 @@
 const container = document. querySelector(".container")
-let humanChoice; 
+
 let gameStart = false;
 
-const player = {
-    computer : ["Player One" , getComputerChoice],
-    human : ["Player Two", getHumanChoice],
-}
+// const btn = document.querySelector(".test");
+// btn.addEventListener("click", ()=>{console.log("i am a work button that clicks in this webpages")
+//   humanChoice='rock';
+// })
+
+
+
 
 //function randomly chooses any value from the array
 function getComputerChoice(){
@@ -23,45 +26,50 @@ function getComputerChoice(){
 //function prompt for user choice
 
 function getHumanChoice(){
-
- container.addEventListener("click", (event)=>{
+  
+ let humanChoice = ''; 
+  container.addEventListener("click", (event)=>{
   let target = event.target;
-
+ 
   switch(target.id){
     case 'rock':
-      humanChoice= 'rock';
       console.log('rock was clicked.');
+      humanChoice= 'rock';
+      
       break;
     case 'paper':
-      humanChoice= 'paper';
       console.log("paper was clicked.");
+      humanChoice = 'paper';
+      
       break;
     case 'scissors':
-      humanChoice= 'scissors';
       console.log('scissors was clicked.');
+      humanChoice = 'scissors';
+      
       break;  
+      
   }
- });
+ 
+ return humanChoice;
+ } );
+ console.log(humanChoice) 
+  //  try{ 
 
-   try{ 
+  //    if (humanChoice !== "rock" &&
+  //        humanChoice !== "paper" &&
+  //        humanChoice !== "scissors" 
+  //         ){
 
-     if (humanChoice !== "rock" &&
-         humanChoice !== "paper" &&
-         humanChoice !== "scissors" 
-          ){
-
-         throw "pick Rock, Paper or Scissors to continue game!!."
+  //        throw "pick Rock, Paper or Scissors to continue game!!."
         
-   } 
+  //  } 
     
-   }catch(err){
-     console.log(err)
-     alert(err)
-     getHumanChoice();
-   } finally{
-     return humanChoice;
-   }
-  
+  //  }catch(err){
+  //    console.log(err)
+  //   // alert(err)
+  //    getHumanChoice();
+  //  } 
+  return humanChoice
   }
 
 //Declare scoreBoard object
@@ -75,57 +83,64 @@ function winningConditions(computer,human){
 
      if (computer === human){
         console.log("it's a tie.")
+        //alert("it's a tie")
      } else if((computer === "paper" && human === "rock") ||
                (computer === "scissors" && human === "paper") ||
                (computer === "rock" && human === "scissors")
      ){
       winner = player.computer[0];
         console.log( "I won alright! I'm just lucky, Humans made me this good!")
-        alert("I won alright! I'm just lucky, Humans made me this good!")
+       // alert("I won alright! I'm just lucky, Humans made me this good!")
       
-     }else if(human = ''){
-      playGame= false
      } else{
          winner = player.human[0];
         console.log( "humans has won this round.")
-        alert("humans has won this round. +1point!")
+       // alert("humans has won this round. +1point!")
      }
 
     return winner;
 }
 
+const player = {
+    computer : ["Player One" , getComputerChoice],
+    human : ["Player Two", getHumanChoice],
+};
+
 //add to scoreboard
 function playRound(){
-   if(container.isclicked()){
+   
    let winner= winningConditions(player.computer[1](),player.human[1]());
     
     winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
-   } 
+   
 }
 
 
-function playGame(){
-  gameStart = true;
-
-   //PlayRound five times
-   for (let i = 1 ; i <= 5; i++){
-     alert("Round" + i + ", Goodluck!!")
-     playRound();
-   }
+const playGame = function (){
  
+
+   gameStart = true;
+
+   
+   //PlayRound five times
+  //  for (let i = 1 ; i <= 5; i++){
+    // alert("Round" + i + ", Goodluck!!")
+     playRound();
+  //  }
+  
 // gameOver conditions
   if (scoreBoard.playerOneScore == 5){
     console.log("computer has won the game!");
-    alert("computer has won the game!");
+    //alert("computer has won the game!");
     
   }else if (scoreBoard.playerTwoScore == 5){
     console.log("the human has won the game!");
-    alert("You Won!!")
+    //alert("You Won!!")
      
   }
   reset();
-}playGame()
-
+}
+playGame()
 
 function reset(){
   gameStart = false;

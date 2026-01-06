@@ -1,10 +1,10 @@
 const container = document. querySelector(".container")
- let humanChoice; 
+let humanChoice; 
 let gameStart = false;
 
 const player = {
     computer : ["Player One" , getComputerChoice],
-    human : ["Player Two", humanChoice],
+    human : ["Player Two", getHumanChoice],
 }
 
 //function randomly chooses any value from the array
@@ -42,7 +42,7 @@ function getHumanChoice(){
       break;  
   }
  });
- 
+
    try{ 
 
      if (humanChoice !== "rock" &&
@@ -96,11 +96,11 @@ function winningConditions(computer,human){
 
 //add to scoreboard
 function playRound(){
-
+   if(container.isclicked()){
    let winner= winningConditions(player.computer[1](),player.human[1]());
     
     winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
-    
+   } 
 }
 
 
@@ -109,7 +109,7 @@ function playGame(){
 
    //PlayRound five times
    for (let i = 1 ; i <= 5; i++){
-   
+     alert("Round" + i + ", Goodluck!!")
      playRound();
    }
  

@@ -25,52 +25,37 @@ function getComputerChoice(){
 
 //function prompt for user choice
 
-function getHumanChoice(){
-  
- let humanChoice = ''; 
   container.addEventListener("click", (event)=>{
-  let target = event.target;
- 
-  switch(target.id){
-    case 'rock':
-      console.log('rock was clicked.');
-      humanChoice= 'rock';
-      
-      break;
-    case 'paper':
-      console.log("paper was clicked.");
-      humanChoice = 'paper';
-      
-      break;
-    case 'scissors':
-      console.log('scissors was clicked.');
-      humanChoice = 'scissors';
-      
-      break;  
-      
-  }
- 
- return humanChoice;
- } );
- console.log(humanChoice) 
-  //  try{ 
-
-  //    if (humanChoice !== "rock" &&
-  //        humanChoice !== "paper" &&
-  //        humanChoice !== "scissors" 
-  //         ){
-
-  //        throw "pick Rock, Paper or Scissors to continue game!!."
-        
-  //  } 
     
-  //  }catch(err){
-  //    console.log(err)
-  //   // alert(err)
-  //    getHumanChoice();
-  //  } 
-  return humanChoice
+     let target = event.target;
+ 
+   switch(target.id){
+     case 'rock':
+       console.log('rock was clicked.');
+       getHumanChoice(target.id)
+      
+       break;
+     case 'paper':
+       console.log("paper was clicked.");
+       getHumanChoice(target.id)
+      
+       break;
+     case 'scissors':
+       console.log('scissors was clicked.');
+       getHumanChoice(target.id)
+      
+       break;  
+      
+   }
+ 
+ } );
+ 
+ function getHumanChoice(choice){
+   let humanChoice = choice; 
+   return humanChoice;
   }
+  
+  
 
 //Declare scoreBoard object
 const scoreBoard = {

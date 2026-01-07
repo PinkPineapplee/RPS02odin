@@ -4,11 +4,31 @@ const paperBtn = document. querySelector("#paper")
 const scissorsBtn = document. querySelector("#scissors")
 
 let gameStart = false;
+let humanSelection = '';
+let computerSelection = getComputerChoice();
+
+//get human Choice
+rockBtn.addEventListener("click", ()=> {
+  humanSelection = 'rock'
+  console.log("rock was clicked", humanSelection)
+  playRound(computerSelection,humanSelection)
+})
+paperBtn.addEventListener("click", ()=> {
+  humanSelection = 'paper'
+  console.log("paper was clicked", humanSelection)
+  playRound(computerSelection,humanSelection)
+})
+scissorsBtn.addEventListener("click", ()=> {
+  humanSelection = 'scissors'
+  console.log("scissors was clicked", humanSelection)
+  playRound(computerSelection,humanSelection)
+})
+
 
 
 const player = {
-    computer : ["Player One" , getComputerChoice],
-    human : ["Player Two", getHumanChoice],
+    computer : ["Player One" ,computerSelection ],
+    human : ["Player Two", humanSelection],
 };
 
 
@@ -18,37 +38,31 @@ function getComputerChoice(){
     const choices = ["rock", "paper", "scissors"];
     const randomIndex = Math.floor(Math.random() * choices.length);
     let computerChoice = choices[randomIndex];
-    return computerChoice 
+    return computerChoice;
 }
 
-rockBtn.addEventListener("click", ()=> {
-  getHumanChoice('rock');
-  console.log(getHumanChoice())
-  
-})
-paperBtn.addEventListener("click", ()=> {
-  getHumanChoice('paper')
-  console.log(getHumanChoice())
-  
-})
-scissorsBtn.addEventListener("click", ()=> {
-  getHumanChoice('scissors')
-  console.log(getHumanChoice())
-  
-})
 
-
-function getHumanChoice(choice){
-    let humanChoice = choice;
-    return humanChoice
-}
-
+console.log(humanSelection)
 
 
 //Declare scoreBoard object
 const scoreBoard = {
     playerOneScore : 0,
     playerTwoScore : 0,
+}
+
+//add to scoreboard
+function playRound(computer, human){
+  if (humanSelection != ''){
+
+   console.log( "ComputerChoice:"+computer, "HumanChoice:"+ human)
+   let winner= winningConditions(computer,human);
+    
+    winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
+   }
+   else {
+    console.log("waiting for human to choose.")
+   }
 }
 
 function winningConditions(computer,human){
@@ -76,35 +90,28 @@ function winningConditions(computer,human){
 
 
 
-//add to scoreboard
-function playRound(){
-   console.log( "getComputerChoice:"+player.computer[1](), "getHumanChoice:"+ player.human[1]())
-   let winner= winningConditions(player.computer[1](),player.human[1]());
-    
-    winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
-   
-}
+
 
 
 const playGame = function (){
  
-
    gameStart = true;
-
-   playRound();
   
 // gameOver conditions
-  if (scoreBoard.playerOneScore == 5){
+  if (scoreBoard.playerOneScore === 5){
     console.log("computer has won the game!");
     //alert("computer has won the game!");
-    
-  }else if (scoreBoard.playerTwoScore == 5){
+     reset();
+  }else if (scoreBoard.playerTwoScore === 5){
     console.log("the human has won the game!");
     //alert("You Won!!")
-     
+      reset();
   }
-  reset();
+ 
 }
+
+// play game five times
+
 playGame()
 
 

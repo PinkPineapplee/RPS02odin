@@ -1,11 +1,10 @@
 const container = document. querySelector(".container")
+const rockBtn = document. querySelector("#rock")
+const paperBtn = document. querySelector("#paper")
+const scissorsBtn = document. querySelector("#scissorss")
 
 let gameStart = false;
 
-// const btn = document.querySelector(".test");
-// btn.addEventListener("click", ()=>{console.log("i am a work button that clicks in this webpages")
-//   humanChoice='rock';
-// })
 
 
 
@@ -17,45 +16,13 @@ function getComputerChoice(){
     const randomIndex = Math.floor(Math.random() * choices.length);
 
     let computerChoice = choices[randomIndex];
-    console.log(computerChoice);
+    
     return computerChoice 
 }
 
 
 
-//function prompt for user choice
 
-  container.addEventListener("click", (event)=>{
-    
-     let target = event.target;
- 
-   switch(target.id){
-     case 'rock':
-       console.log('rock was clicked.');
-       getHumanChoice(target.id)
-      
-       break;
-     case 'paper':
-       console.log("paper was clicked.");
-       getHumanChoice(target.id)
-      
-       break;
-     case 'scissors':
-       console.log('scissors was clicked.');
-       getHumanChoice(target.id)
-      
-       break;  
-      
-   }
- 
- } );
- 
- function getHumanChoice(choice){
-   let humanChoice = choice; 
-   return humanChoice;
-  }
-  
-  
 
 //Declare scoreBoard object
 const scoreBoard = {
@@ -93,8 +60,8 @@ const player = {
 
 //add to scoreboard
 function playRound(){
-   
-   let winner= winningConditions(player.computer[1](),player.human[1]());
+   console.log( "getComputerChoice:"+player.computer[1](), "getHumanChoice:"+ player.human[1]())
+   let winner= winningConditions(player.computer[1](),getHumanChoice());
     
     winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
    

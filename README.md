@@ -21,6 +21,7 @@ This Exercise is a project from <a href="https://www.theodinproject.com/lessons/
 <br>
 
 >Built by Human Hands
+>
 >This program was created entirely by human effort. Every line of code, every design decision, and every feature—from beginning to end—was crafted without the use of artificial intelligence. Pure human creativity, problem-solving, and dedication.
 >
 >Proudly made by PinkPineapple.
@@ -29,9 +30,9 @@ This Exercise is a project from <a href="https://www.theodinproject.com/lessons/
 <hr>
 ##Attributions 
 
->Scissors by Cap Cool 
->Hand by andinur
->paper by iconading
+>Scissors by Cap Cool. 
+>Hand by andinur.
+>paper by iconading.
 
 *"https://www.flaticon.com/free-icons/fist" 
 *"https://www.flaticon.com/free-icons/"

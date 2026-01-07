@@ -1,12 +1,15 @@
 const container = document. querySelector(".container")
 const rockBtn = document. querySelector("#rock")
 const paperBtn = document. querySelector("#paper")
-const scissorsBtn = document. querySelector("#scissorss")
+const scissorsBtn = document. querySelector("#scissors")
 
 let gameStart = false;
 
 
-
+const player = {
+    computer : ["Player One" , getComputerChoice],
+    human : ["Player Two", getHumanChoice],
+};
 
 
 //function randomly chooses any value from the array
@@ -20,7 +23,12 @@ function getComputerChoice(){
     return computerChoice 
 }
 
-
+rockBtn.addEventListener("click", ()=>{ getHumanChoice()})
+paperBtn.addEventListener("click", ()=>{ getHumanChoice()})
+scissorsBtn.addEventListener("click", ()=>{ getHumanChoice()})
+function getHumanChoice(){
+    
+}
 
 
 
@@ -53,10 +61,7 @@ function winningConditions(computer,human){
     return winner;
 }
 
-const player = {
-    computer : ["Player One" , getComputerChoice],
-    human : ["Player Two", getHumanChoice],
-};
+
 
 //add to scoreboard
 function playRound(){

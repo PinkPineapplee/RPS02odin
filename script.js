@@ -23,15 +23,15 @@ function getComputerChoice(){
     return computerChoice 
 }
 
-rockBtn.addEventListener("click", ()=>{ getHumanChoice()})
-paperBtn.addEventListener("click", ()=>{ getHumanChoice()})
-scissorsBtn.addEventListener("click", ()=>{ getHumanChoice()})
-function getHumanChoice(){
-    
+
+
+function getHumanChoice(choice){
+    let humanChoice = choice;
+    return humanChoice
 }
 
 
-
+ console.log(getHumanChoice())
 //Declare scoreBoard object
 const scoreBoard = {
     playerOneScore : 0,
@@ -65,10 +65,30 @@ function winningConditions(computer,human){
 
 //add to scoreboard
 function playRound(){
+
    console.log( "getComputerChoice:"+player.computer[1](), "getHumanChoice:"+ player.human[1]())
-   let winner= winningConditions(player.computer[1](),getHumanChoice());
+   let winner;
+
+  rockBtn.addEventListener("click", ()=> {
+  
+  console.log(getHumanChoice())
+  winner= winningConditions(player.computer[1](),player.human[1]('rock'));
     
-    winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
+})
+paperBtn.addEventListener("click", ()=> {
+  
+  console.log(getHumanChoice())
+  winner= winningConditions(player.computer[1](),player.human[1]('paper'));
+    
+})
+scissorsBtn.addEventListener("click", ()=> {
+  
+  console.log(getHumanChoice())
+  winner= winningConditions(player.computer[1](),player.human[1]('scissors'));
+    
+})
+
+  winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
    
 }
 
@@ -78,12 +98,11 @@ const playGame = function (){
 
    gameStart = true;
 
-   
    //PlayRound five times
-  //  for (let i = 1 ; i <= 5; i++){
+   // for (let i = 1 ; i <= 5; i++){
     // alert("Round" + i + ", Goodluck!!")
      playRound();
-  //  }
+ // }
   
 // gameOver conditions
   if (scoreBoard.playerOneScore == 5){

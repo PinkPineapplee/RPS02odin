@@ -17,12 +17,25 @@ function getComputerChoice(){
 
     const choices = ["rock", "paper", "scissors"];
     const randomIndex = Math.floor(Math.random() * choices.length);
-
     let computerChoice = choices[randomIndex];
-    
     return computerChoice 
 }
 
+rockBtn.addEventListener("click", ()=> {
+  getHumanChoice('rock');
+  console.log(getHumanChoice())
+  
+})
+paperBtn.addEventListener("click", ()=> {
+  getHumanChoice('paper')
+  console.log(getHumanChoice())
+  
+})
+scissorsBtn.addEventListener("click", ()=> {
+  getHumanChoice('scissors')
+  console.log(getHumanChoice())
+  
+})
 
 
 function getHumanChoice(choice){
@@ -31,7 +44,7 @@ function getHumanChoice(choice){
 }
 
 
- console.log(getHumanChoice())
+
 //Declare scoreBoard object
 const scoreBoard = {
     playerOneScore : 0,
@@ -65,30 +78,10 @@ function winningConditions(computer,human){
 
 //add to scoreboard
 function playRound(){
-
    console.log( "getComputerChoice:"+player.computer[1](), "getHumanChoice:"+ player.human[1]())
-   let winner;
-
-  rockBtn.addEventListener("click", ()=> {
-  
-  console.log(getHumanChoice())
-  winner= winningConditions(player.computer[1](),player.human[1]('rock'));
+   let winner= winningConditions(player.computer[1](),player.human[1]());
     
-})
-paperBtn.addEventListener("click", ()=> {
-  
-  console.log(getHumanChoice())
-  winner= winningConditions(player.computer[1](),player.human[1]('paper'));
-    
-})
-scissorsBtn.addEventListener("click", ()=> {
-  
-  console.log(getHumanChoice())
-  winner= winningConditions(player.computer[1](),player.human[1]('scissors'));
-    
-})
-
-  winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
+    winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
    
 }
 
@@ -98,11 +91,7 @@ const playGame = function (){
 
    gameStart = true;
 
-   //PlayRound five times
-   // for (let i = 1 ; i <= 5; i++){
-    // alert("Round" + i + ", Goodluck!!")
-     playRound();
- // }
+   playRound();
   
 // gameOver conditions
   if (scoreBoard.playerOneScore == 5){
@@ -117,6 +106,7 @@ const playGame = function (){
   reset();
 }
 playGame()
+
 
 function reset(){
   gameStart = false;

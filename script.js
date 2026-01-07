@@ -54,7 +54,13 @@ function playRound(computer, human){
    console.log( "ComputerChoice:"+computer, "HumanChoice:"+ human)
    let winner= winningConditions(computer,human);
     
-    winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
+    if (winner == "Player One"){
+      scoreBoard.playerOneScore++
+    } else if( winner == "Player Two"){
+      scoreBoard.playerTwoScore++
+    }else{
+      return
+    }
     
    }
    else {

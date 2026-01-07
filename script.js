@@ -111,9 +111,9 @@ const playGame = function (){
 }
 
 // play game five times
-
+for (i=0; i < 5; i++){
 playGame()
-
+}
 
 function reset(){
   gameStart = false;

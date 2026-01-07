@@ -3,28 +3,26 @@ const rockBtn = document. querySelector("#rock")
 const paperBtn = document. querySelector("#paper")
 const scissorsBtn = document. querySelector("#scissors")
 
-let gameStart = false;
+
 let humanSelection = '';
 let computerSelection = getComputerChoice();
 
 //get human Choice
 rockBtn.addEventListener("click", ()=> {
   humanSelection = 'rock'
-  console.log("rock was clicked", humanSelection)
+  
   playRound(computerSelection,humanSelection)
 })
 paperBtn.addEventListener("click", ()=> {
   humanSelection = 'paper'
-  console.log("paper was clicked", humanSelection)
+  
   playRound(computerSelection,humanSelection)
 })
 scissorsBtn.addEventListener("click", ()=> {
   humanSelection = 'scissors'
-  console.log("scissors was clicked", humanSelection)
+  
   playRound(computerSelection,humanSelection)
 })
-
-
 
 const player = {
     computer : ["Player One" ,computerSelection ],
@@ -42,8 +40,6 @@ function getComputerChoice(){
 }
 
 
-console.log(humanSelection)
-
 
 //Declare scoreBoard object
 const scoreBoard = {
@@ -59,6 +55,7 @@ function playRound(computer, human){
    let winner= winningConditions(computer,human);
     
     winner == "Player One" ? scoreBoard.playerOneScore++ : scoreBoard.playerTwoScore++
+    
    }
    else {
     console.log("waiting for human to choose.")
@@ -95,7 +92,7 @@ function winningConditions(computer,human){
 
 const playGame = function (){
  
-   gameStart = true;
+
   
 // gameOver conditions
   if (scoreBoard.playerOneScore === 5){
@@ -110,15 +107,14 @@ const playGame = function (){
  
 }
 
-// play game five times
-for (i=0; i < 5; i++){
+// play game five time
 playGame()
-}
+
 
 function reset(){
   gameStart = false;
-  scoreBoard.playerOneScore[1]=0;
-  scoreBoard.playerTwoScore[1]=0;
+  scoreBoard.playerOneScore=0;
+  scoreBoard.playerTwoScore=0;
 
   return (gameStart, scoreBoard.playerOneScore, scoreBoard.playerTwoScore)
 }

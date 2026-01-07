@@ -49,6 +49,7 @@ const scoreBoard = {
 
 //add to scoreboard
 function playRound(computer, human){
+  
   if (humanSelection != ''){
 
    console.log( "ComputerChoice:"+computer, "HumanChoice:"+ human)
@@ -66,6 +67,7 @@ function playRound(computer, human){
    else {
     console.log("waiting for human to choose.")
    }
+   isGameOver();
 }
 
 function winningConditions(computer,human){
@@ -73,19 +75,19 @@ function winningConditions(computer,human){
 
      if (computer === human){
         console.log("it's a tie.")
-        //alert("it's a tie")
+       alert("it's a tie")
      } else if((computer === "paper" && human === "rock") ||
                (computer === "scissors" && human === "paper") ||
                (computer === "rock" && human === "scissors")
      ){
       winner = player.computer[0];
         console.log( "I won alright! I'm just lucky, Humans made me this good!")
-       // alert("I won alright! I'm just lucky, Humans made me this good!")
+       alert("I won alright! I'm just lucky, Humans made me this good!")
       
      } else{
          winner = player.human[0];
         console.log( "humans has won this round.")
-       // alert("humans has won this round. +1point!")
+       alert("humans has won this round. +1point!")
      }
 
     return winner;
@@ -96,25 +98,24 @@ function winningConditions(computer,human){
 
 
 
-const playGame = function (){
- 
-
-  
+function isGameOver(){
+  let gameOver = false
 // gameOver conditions
   if (scoreBoard.playerOneScore === 5){
     console.log("computer has won the game!");
-    //alert("computer has won the game!");
+   alert("computer Won!! GAMEOVER!!!");
+    gameOver = true
      reset();
   }else if (scoreBoard.playerTwoScore === 5){
     console.log("the human has won the game!");
-    //alert("You Won!!")
+   alert("You Won!! GAMEOVER!!")
+    gameOver = true
       reset();
   }
- 
+ return gameOver
 }
 
-// play game five time
-playGame()
+
 
 
 function reset(){
